@@ -14,6 +14,9 @@ namespace NetworkApplicationDevelopmentClient.HomeWorks.HomeWork1.Client
         public byte[]? data;
         public string? messageText;
 
+
+
+
         public void SentMessage(string From, string ip)
         {
             UdpClient udpClient = new UdpClient();
@@ -33,12 +36,31 @@ namespace NetworkApplicationDevelopmentClient.HomeWorks.HomeWork1.Client
 
                 string json = message.SerializeMessageToJson();
                 data = Encoding.UTF8.GetBytes(json);
-
                 udpClient.Send(data, data.Length, iPEndPoint);
 
+
+                var getThread = new Thread(() => 
+                {
                     data = udpClient.Receive(ref iPEndPoint);
+                });
+   
+                getThread.Start();
+
+                if (getThread.Join(1000))
+                {
                     messageText = Encoding.UTF8.GetString(data);
                     Console.WriteLine(messageText);
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Нет ответа от сервера");
+                    getThread.Interrupt();
+                }
+
+                // data = udpClient.Receive(ref iPEndPoint);
+                // messageText = Encoding.UTF8.GetString(data);
+                // Console.WriteLine(messageText);
             }
         }
     }
