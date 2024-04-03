@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using NetworkApplicationDevelopmentServer.HomeWorks.HomeWork1;
 
 namespace NetworkApplicationDevelopmentClient.HomeWorks.HomeWork1.Client
 {
@@ -13,9 +14,6 @@ namespace NetworkApplicationDevelopmentClient.HomeWorks.HomeWork1.Client
         public MessageHW1? message;
         public byte[]? data;
         public string? messageText;
-
-
-
 
         public void SentMessage(string From, string ip)
         {
@@ -26,7 +24,6 @@ namespace NetworkApplicationDevelopmentClient.HomeWorks.HomeWork1.Client
             {
                 do
                 {
-                    // Console.Clear();
                     Console.WriteLine("Введите сообщение");
                     messageText = Console.ReadLine()!;
                 }
@@ -57,10 +54,6 @@ namespace NetworkApplicationDevelopmentClient.HomeWorks.HomeWork1.Client
                     Console.WriteLine("Нет ответа от сервера");
                     getThread.Interrupt();
                 }
-
-                // data = udpClient.Receive(ref iPEndPoint);
-                // messageText = Encoding.UTF8.GetString(data);
-                // Console.WriteLine(messageText);
             }
         }
     }

@@ -13,6 +13,7 @@ namespace Client.Lections.Lection1
 
         /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// Клиент на сокет начало
+        /// 
         //public void WithUdp()
         //{
         //    using (Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp))

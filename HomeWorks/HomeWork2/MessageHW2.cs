@@ -5,9 +5,9 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace NetworkApplicationDevelopmentClient.HomeWorks.HomeWork1.Client
+namespace NetworkApplicationDevelopmentClient.HomeWorks.HomeWork2.Client
 {
-    internal class MessageHW1
+    internal class MessageHW2
     {
         public string? Text { get; set; }
         public DateTime? DateTime { get; set; }
@@ -16,7 +16,7 @@ namespace NetworkApplicationDevelopmentClient.HomeWorks.HomeWork1.Client
 
         public string SerializeMessageToJson() => JsonSerializer.Serialize(this); 
 
-        public static MessageHW1? DeserializeFromJson(string message) => JsonSerializer.Deserialize<MessageHW1>(message);
+        public static MessageHW2? DeserializeFromJson(string message) => JsonSerializer.Deserialize<MessageHW2>(message);
 
         public void Print()
         {
