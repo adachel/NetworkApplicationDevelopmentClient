@@ -27,7 +27,12 @@ namespace NetworkApplicationDevelopmentClient.HomeWorks.HomeWork2.Client
                 do
                 {
                     Console.WriteLine("Введите сообщение");
-                    messageText = Console.ReadLine()!;
+
+                    messageText = Console.ReadLine()!.ToLower();
+                    if (messageText.Equals("exit"))
+                    {
+                        return;
+                    }
                 }
                 while (string.IsNullOrEmpty(messageText));
 
